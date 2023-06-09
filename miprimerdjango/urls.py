@@ -23,6 +23,6 @@ urlpatterns = [
     path('segunda-vista',views.segunda_vista),
     path('fecha-actual',views.fecha_actual),
     path('saludar',views.saludar),
-    path('Bienvenida/<str:nombre>/<str:apellido>',views.Bienvenida)
+    path('Bienvenida/<str:nombre>/<str:apellido>/',views.Bienvenida)
 
 ]
