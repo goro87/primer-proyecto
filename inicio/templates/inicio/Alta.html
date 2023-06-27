@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Alta</title> 
+<link rel="stylesheet" href="#">
+{% endblock title_head %}
+
+{% block Color %}
+<nav class="navbar navbar-default" style="background-color: #b411fb;color:#fff" role="navigation">    
+{% endblock Color %} 
+
+{% block h1_header %}
+  Modulo-Alta de Cliente
+{% endblock h1_header %}
+<table>
+{% block  contenido%}
+<form action="" method ="POST">
+  {% csrf_token %}
+  Nombre 
+  <input type="text" name="nombre">
+  <p></p>
+  Edad  <input type="number" name="edad">
+  <p></p>
+ <button>Dar de alta</button>
+</form>
+
+{% endblock contenido %}
+</table>

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Busqueda</title> 
+<link rel="stylesheet" href="#">
+{% endblock title_head %}
+
+{% block Color %}
+<nav class="navbar navbar-default" style="background-color: #0000FF;color:#fff" role="navigation">    
+{% endblock Color %} 
+
+
+
+
+
+{% block Imagen %}
+{% block h1_header %}
+<p><center>
+<h2>Busqueda de Cliente</h2>
+</p></center>
+{% endblock h1_header %}
+{% endblock Imagen %}
+
+
+{% block  contenido%}
+
+<form action="" method="get">
+  <center>
+  {{formulario}}
+<button>Buscar</button>
+</center>
+</form>
+{% if  personas %}
+<p>Se cargo la siguiente informacion</p>
+{% for persona in personas %}
+<li>Nombre : {{persona.nombre_Persona}} - Edad : {{persona.edad_Persona}}</li>
+{% endfor %}
+{% else %}
+<p>No se encontraron datos.</p>
+{% endif %}
+{% endblock contenido %}
+        <!-- Footer-->
+       

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Alta_Producto</title> 
+<link rel="stylesheet" href="#">
+{% endblock title_head %}
+
+ {% block Color %}
+ <nav class="navbar navbar-default" style="background-color: #52f245;color:#fff" role="navigation">    
+{% endblock Color %} 
+
+{% block h1_header %}
+Modulo-Alta de Producto
+{% endblock h1_header %}
+
+{% block  contenido%}
+
+<form action="" method ="POST">
+  {% csrf_token %}
+  Producto
+  <input type="text" name="nombre">
+  <p></p>
+  Precio  Alta<input type="number" name="precio">
+  <p></p>
+ <button>Dar de alta</button>
+</form>
+
+{% endblock contenido %}
+        <!-- Footer-->
+       
