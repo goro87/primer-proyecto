@@ -6,7 +6,7 @@ from inicio.models import Persona
 from inicio.models import Producto
 from inicio.models import Proveedor
 from django.shortcuts import render,redirect
-from inicio.form import BuscarPersona,CrearPersonaFormulario
+from inicio.form import BuscarPersona,CrearPersonaFormulario,CrearProductoFormulario,CrearProveedorFormulario
 # def inicio(request):
 #     return HttpResponse('Hola soy la vista loca')
 
@@ -106,7 +106,7 @@ def Alta(request):
           #  diccionario['persona']=persona
             return redirect('inicio:Busqueda')
         else :
-            diccionario['formulario']=formulario
+           # diccionario['formulario']=formulario
             return render(request,'inicio/Busqueda.html')
     
     formulario=CrearPersonaFormulario()
@@ -124,25 +124,70 @@ def Busqueda(request):
     return render(request,'inicio/Busqueda.html',{'formulario':formulario , 'personas': listado_de_personas })
     #return render(request,'inicio/Busqueda.html',{'formulario':formulario})
 
+#v1
+# def Alta_Producto(request):
+    
+#     diccionario={}
+    
+#     if request.method == "POST":
+#      producto = Producto(nombre_Producto=request.POST['nombre'],Precio_Producto=request.POST['precio']) 
+#      producto.save()
+#      diccionario['producto']:producto
+     
+#     return render(request,'inicio/Alta_Producto.html')
+
 
 def Alta_Producto(request):
     
-    diccionario={}
+    #diccionario={}
     
     if request.method == "POST":
-     producto = Producto(nombre_Producto=request.POST['nombre'],Precio_Producto=request.POST['precio']) 
-     producto.save()
-     diccionario['producto']:producto
+        formulario=CrearProductoFormulario(request.POST)
+        if formulario.is_valid():
+            info = formulario.cleaned_data
+            producto = Producto(nombre_Producto=info['nombre_Producto_f'],Precio_Producto=info['Precio_Producto_f']) 
+            producto.save()
+          #  diccionario['persona']=persona
+            return redirect('inicio:Alta_Producto')
+        else :
+          #  diccionario['formulario']=formulario
+            return render(request,'inicio/inicio.html')
+    
+    formulario=CrearProductoFormulario()
+   # diccionario['formulario']=formulario
+    return render(request,'inicio/Alta_Producto.html', {'formulario':formulario})
+
+
+
+# def Alta_Empresa(request):
+    
+#     diccionario={}
+    
+#     if request.method == "POST":
+#      proveedor = Proveedor(Nombre_Empresa=request.POST['nombre'],CUIT=request.POST['CUIT']) 
+#      proveedor.save()
+#      diccionario['proveedor']:proveedor
      
-    return render(request,'inicio/Alta_Producto.html')
+#     return render(request,'inicio/Alta_Empresa.html')
+
 
 def Alta_Empresa(request):
     
-    diccionario={}
+    #diccionario={}
     
     if request.method == "POST":
-     proveedor = Proveedor(Nombre_Empresa=request.POST['nombre'],CUIT=request.POST['CUIT']) 
-     proveedor.save()
-     diccionario['proveedor']:proveedor
-     
-    return render(request,'inicio/Alta_Empresa.html')
+        formulario=CrearProveedorFormulario(request.POST)
+        if formulario.is_valid():
+            info = formulario.cleaned_data
+            proveedor = Proveedor(Nombre_Empresa=info['Nombre_Empresa'],CUIT=info['CUIT_Empresa']) 
+            proveedor.save()
+          #  diccionario['persona']=persona
+            return redirect('inicio:Alta_Empresa')
+        else :
+          #  diccionario['formulario']=formulario
+            return render(request,'inicio/inicio.html')
+    
+    formulario=CrearProveedorFormulario()
+   # diccionario['formulario']=formulario
+    return render(request,'inicio/Alta_Empresa.html', {'formulario':formulario})
+

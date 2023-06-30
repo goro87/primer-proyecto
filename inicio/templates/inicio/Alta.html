@@ -12,17 +12,18 @@
 {% block h1_header %}
   Modulo-Alta de Cliente
 {% endblock h1_header %}
-<table>
+
 {% block  contenido%}
 <form action="" method ="POST">
   {% csrf_token %}
-  Nombre 
+  {% comment %} Nombre 
   <input type="text" name="nombre">
   <p></p>
   Edad  <input type="number" name="edad">
-  <p></p>
+  <p></p> {% endcomment %}
+ {{formulario}}
  <button>Dar de alta</button>
 </form>
 
 {% endblock contenido %}
-</table>
+

@@ -17,11 +17,12 @@ Modulo-Alta de Empresa
 
 <form action="" method ="POST">
   {% csrf_token %}
-  Empresa
+  {% comment %} Empresa
   <input type="text" name="nombre">
   <p></p>
   CUIT<input type="number" name="CUIT">
-  <p></p>
+  <p></p> {% endcomment %}
+  {{formulario}}
  <button>Dar de alta</button>
 </form>
 

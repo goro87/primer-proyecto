@@ -17,11 +17,12 @@ Modulo-Alta de Producto
 
 <form action="" method ="POST">
   {% csrf_token %}
-  Producto
+  {% comment %} Producto
   <input type="text" name="nombre">
   <p></p>
   Precio  Alta<input type="number" name="precio">
-  <p></p>
+  <p></p> {% endcomment %}
+  {{formulario}}
  <button>Dar de alta</button>
 </form>
 
