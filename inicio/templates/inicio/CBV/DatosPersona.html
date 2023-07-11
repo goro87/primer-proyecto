@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Datos</title> 
+<link rel="stylesheet" href="#">
+{% endblock title_head %}
+
+{% block Color %}
+<nav class="navbar navbar-default" style="background-color: #b411fb;color:#fff" role="navigation">    
+{% endblock Color %} 
+
+{% block h1_header %}
+{{persona.nombre_Persona }}
+{% endblock h1_header %}
+
+{% block  contenido%}
+<table>
+<li>
+ Edad : {{persona.edad_Persona }} <p></p>
+ Lugar de Nacimiento :  {{persona.Lugar_De_Nacimiento }}<p></p>
+ Fecha de Nacimiento :  {{persona.Fecha_Nacimiento }} <p></p>
+ Datos de la persona :  {{persona.descripcion }}<p></p>
+</li>
+</table>
+
+<a href={% url 'inicio:inicio' %}>Regresar al inicio</a>
+
+{% endblock contenido %} 

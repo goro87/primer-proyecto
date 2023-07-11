@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title_head %}
-<title>Alta</title> 
+<title>Alta_CBV</title> 
 <link rel="stylesheet" href="#">
 {% endblock title_head %}
 
@@ -10,22 +10,16 @@
 {% endblock Color %} 
 
 {% block h1_header %}
-  Modulo-Alta de Cliente
+  Modulo-Alta de Cliente_CBV
 {% endblock h1_header %}
 
 {% block  contenido%}
-<form action="" method ="POST">
+<form action={% url 'inicio:Alta' %} method ="POST">
   {% csrf_token %}
-  {% comment %} Nombre 
-  <input type="text" name="nombre">
-  <p></p>
-  Edad  <input type="number" name="edad">
-  <p></p> {% endcomment %}
   <table>
- {{formulario}}
+    {{form}}
   </table>  
  <button>Dar de alta</button>
-</form>
+</form> 
 
-{% endblock contenido %}
-
+ {% endblock contenido %} 

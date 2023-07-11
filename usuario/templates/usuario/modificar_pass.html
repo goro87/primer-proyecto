@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% comment %} {% block  title_head %}
+<title>Edicion Perfil</title>
+{% endblock  title_head %} {% endcomment %}
+
+{% block h1_header %}
+Editar Password
+{% endblock h1_header %}
+
+
+
+{% block contenido %}
+<form action={% url 'usuario:modificar_pass' %}  method="post">
+    {% csrf_token %}
+    <table>
+    {{form}}
+    </table>
+    <button>Cambiar Password</button>
+</form>
+{% endblock contenido %}

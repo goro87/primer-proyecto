@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title_head %}
-<title>Alta</title> 
+<title>Eliminar_CBV</title> 
 <link rel="stylesheet" href="#">
 {% endblock title_head %}
 
@@ -10,22 +10,14 @@
 {% endblock Color %} 
 
 {% block h1_header %}
-  Modulo-Alta de Cliente
+  Modulo-Eliminar de Cliente_CBV
 {% endblock h1_header %}
 
 {% block  contenido%}
-<form action="" method ="POST">
+<form action={% url 'inicio:EliminarPersona' persona.id %} method ="POST">
   {% csrf_token %}
-  {% comment %} Nombre 
-  <input type="text" name="nombre">
-  <p></p>
-  Edad  <input type="number" name="edad">
-  <p></p> {% endcomment %}
-  <table>
- {{formulario}}
-  </table>  
- <button>Dar de alta</button>
-</form>
+  <p>Confirmar eliminar a {{persona}}</p>
+ <button>Confirmar</button>
+</form> 
 
-{% endblock contenido %}
-
+ {% endblock contenido %} 

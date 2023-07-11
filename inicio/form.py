@@ -1,12 +1,21 @@
 from django import forms
 
-class CrearPerroFormulario(forms.Form):
+
+
+
+class PersonaFormularioBase(forms.Form):
     nombre= forms.CharField(max_length=20, required=False)
     edad= forms.IntegerField()
+
+class CrearPerroFormulario(PersonaFormularioBase):
+    ...
     
-class CrearPersonaFormulario(forms.Form):
+class CrearPersonaFormulario(PersonaFormularioBase):
+    ...
+    
+class ModificarPersonaFormulario(forms.Form):
     nombre= forms.CharField(max_length=20, required=False)
-    edad= forms.IntegerField()
+    edad= forms.IntegerField()    
     
 class BuscarPersona(forms.Form):
     nombre= forms.CharField(max_length=20, required=False)

@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 
 {% block title_head %}
-<title>Inicio</title> 
+<title>Modificar Persona</title> 
 <link rel="stylesheet" href="#">
 {% endblock title_head %}
 
-{% comment %} {% block h1_header %}
-  Inicio
-{% endblock h1_header %} {% endcomment %}
-
-
 {% block h1_header %}
-  Proyecto Final CODERHOUSE
+  Modificar Persona
 {% endblock h1_header %}
 
-
 {% block  contenido%}
+<form action="" method ="POST">
+  {% csrf_token %}
+  <table>
+ {{formulario}}
+  </table>  
+ <button>Modificar</button>
+</form>
 
 {% endblock contenido %}
-        <!-- Footer-->
-       
+

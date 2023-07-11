@@ -20,12 +20,7 @@
 
 {% block  contenido%}
 
-<form action="" method="get">
-  <center>
-{{formulario}}
-<button>Buscar</button>
-</center>
-</form>
+
 {% if  personas %}
 <p>Se cargo la siguiente informacion</p>
 {% for persona in personas %}
@@ -33,11 +28,15 @@
 <li>
 
   {{persona}}
-  <a href={% url 'inicio:eliminar_persona' persona.id %}>Eliminar</a>
-  <a href={% url 'inicio:modificar_persona' persona.id %}>Modificar</a>
+
+  <a href={% url 'inicio:DatosPersona' persona.id %}>Ver Datos</a>
+  <a href={% url 'inicio:ModificarPersona' persona.id %}>Modificar</a>
+  <a href={% url 'inicio:EliminarPersona' persona.id %}>Eliminar</a>
+  
 </li>
 </table>
-{% comment %} <li>Nombre : {{persona.nombre_Persona}} - Edad : {{persona.edad_Persona}}</li> {% endcomment %}
+
+
 {% endfor %}
 {% else %}
 <p>No se encontraron datos.</p>

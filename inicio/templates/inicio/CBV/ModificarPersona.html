@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Modificar Persona</title> 
+<link rel="stylesheet" href="#">
+{% endblock title_head %}
+
+{% block h1_header %}
+  Modificar Persona
+{% endblock h1_header %}
+
+{% block  contenido%}
+<form action={% url 'inicio:ModificarPersona' persona.id %} method ="POST">
+  {% csrf_token %}
+  <table>
+ {{form}}
+  </table>  
+ <button>Modificar</button>
+</form>
+
+{% endblock contenido %}
+

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Login</title> 
+<link rel="stylesheet" href="#">
+{% endblock title_head %}
+
+{% block Color %}
+<nav class="navbar navbar-default" style="background-color: #008000;color:#fff" role="navigation">    
+{% endblock Color %} 
+
+{% block h1_header %}
+  Modulo-Login
+{% endblock h1_header %}
+
+{% block  contenido%}
+<form action={% url 'usuario:login'%} method ="POST">
+    {% csrf_token %}
+  
+  <table>
+    {{formulario}}
+  </table>  
+ <button>Login</button>
+</form> 
+
+ {% endblock contenido %} 
