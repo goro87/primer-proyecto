@@ -5,17 +5,41 @@
 <link rel="stylesheet" href="#">
 {% endblock title_head %}
 
+{% block Imagen %}
+{% if request.user.infoextra.avatar %}
+<center><img src={{request.user.infoextra.avatar.url}} alt="" height='200px'></center>
+{% endif %}
+{% block h1_header %}
+
+<p>
+<center>
+{% if request.user.username %}
+<h1>{{request.user.first_name}}</h1>
+{%else%}
+<p><center><h2>No hay usuario Logueado</h2></center></p>
+{% endif %}
+
+</p>
+</center>
+{% endblock h1_header %}
+{% endblock Imagen %}
+
+
 {% block Color %}
 <nav class="navbar navbar-default" style="background-color: #FF6600;color:#fff" role="navigation">    
 {% endblock Color %} 
 
-{% block h1_header %}
 
-{% endblock h1_header %}
+
 
 {% block  contenido%}
-
-
-<a href={% url 'inicio:inicio' %}>Regresar al inicio</a>
+<p><center>Hola!Este es mi proyecto</center></p>
+<p><center>en el mismo se puede Crear,Eliminar,Modificar</center></p>
+<p><center>este proyecto lo realice de forma individual </center></p>
+<p><center>realmente me resulto muy entretenido</center></p>
+<p><center>Realmente el curso me resulto muy entretenido y me gusto</center></p>
+<center><button><a  class="navbar-brand" href={% url 'inicio:inicio' %}>Regresar al inicio</a></button></center>
 
 {% endblock contenido %} 
+
+

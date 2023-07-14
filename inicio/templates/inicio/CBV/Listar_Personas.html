@@ -21,20 +21,22 @@
 {% block  contenido%}
 
 
+
+
 {% if  personas %}
 <p>Se cargo la siguiente informacion</p>
 {% for persona in personas %}
-<table>
+
 <li>
-
   {{persona}}
+  <table>
 
-  <a href={% url 'inicio:DatosPersona' persona.id %}>Ver Datos</a>
-  <a href={% url 'inicio:ModificarPersona' persona.id %}>Modificar</a>
-  <a href={% url 'inicio:EliminarPersona' persona.id %}>Eliminar</a>
-  
-</li>
+  <button> <a  class="navbar-brand" href={% url 'inicio:DatosPersona' persona.id %}> Ver Datos </a> </button>
+  <button> <a  class="navbar-brand" href={% url 'inicio:ModificarPersona' persona.id %}> Modificar </a></button>
+  <button> <a  class="navbar-brand" href={% url 'inicio:EliminarPersona' persona.id %}> Eliminar </a></button>
 </table>
+</li>
+
 
 
 {% endfor %}

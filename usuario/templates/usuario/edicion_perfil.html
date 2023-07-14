@@ -11,7 +11,7 @@ Editar Perfil
 
 
 {% block contenido %}
-<form action={% url 'usuario:editar_perfil' %}  method="post">
+<form action={% url 'usuario:editar_perfil' %}  method="post" enctype='multipart/form-data'>
     {% csrf_token %}
     <table>
     {{formulario}}
