@@ -251,6 +251,7 @@ class DatosPersona(DetailView):
 class Acerca(ListView):
     model = Persona
     template_name = "inicio/CBV/Acerca.html"
+    context_object_name='personas'
 
    
     

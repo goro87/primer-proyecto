@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -12,7 +13,7 @@ class Perro(models.Model):
 class Persona(models.Model):
     nombre_Persona = models.CharField(max_length=20) 
     edad_Persona = models.IntegerField() 
-    descripcion = models.TextField(null=True)
+    descripcion = RichTextField(null=True)
     Lugar_De_Nacimiento = models.CharField(max_length=20,null=True) 
     Fecha_Nacimiento = models.DateField(null=True)
     

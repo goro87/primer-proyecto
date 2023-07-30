@@ -6,6 +6,9 @@
 
 {% block h1_header %}
 Editar Perfil
+<h1>Usuario:{{request.user}}</h1>
+<h1>Nombre : {{request.user.first_name}}</h1>
+<h1>Apellido : {{request.user.last_name}}</h1>
 {% endblock h1_header %}
 
 

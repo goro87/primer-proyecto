@@ -14,12 +14,15 @@
 <p>
 <center>
 {% if request.user.username %}
-<h1>{{request.user.first_name}}</h1>
+<h1>Usuario:{{request.user}}</h1>
+<h1>Nombre : {{request.user.first_name}}</h1>
+<h1>Apellido : {{request.user.last_name}}</h1>
+
 {%else%}
-<p><center><h2>No hay usuario Logueado</h2></center></p>
+<p><center><h1>No hay usuario Logueado</h1></center></p>
 {% endif %}
 
-</p>
+
 </center>
 {% endblock h1_header %}
 {% endblock Imagen %}
@@ -29,16 +32,14 @@
 <nav class="navbar navbar-default" style="background-color: #FF6600;color:#fff" role="navigation">    
 {% endblock Color %} 
 
-
-
-
 {% block  contenido%}
-<p><center>Hola!Este es mi proyecto</center></p>
-<p><center>en el mismo se puede Crear,Eliminar,Modificar</center></p>
-<p><center>este proyecto lo realice de forma individual </center></p>
-<p><center>realmente me resulto muy entretenido</center></p>
-<p><center>Realmente el curso me resulto muy entretenido y me gusto</center></p>
+<center>Hola!Este es mi proyecto</center>
+<center>en el mismo se puede Crear,Eliminar,Modificar</center>
+<center>este proyecto lo realice de forma individual </center>
+<center>realmente me resulto muy entretenido</center>
+<center>Realmente el curso me resulto muy entretenido y me gusto</center>
 <center><button><a  class="navbar-brand" href={% url 'inicio:inicio' %}>Regresar al inicio</a></button></center>
+<p></p>
 
 {% endblock contenido %} 
 

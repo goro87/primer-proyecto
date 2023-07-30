@@ -20,9 +20,9 @@ class MiFormularioDeCreacionDeUsuarios(UserCreationForm):
     
 class MiFormularioDeEdicionDeDatosDeUsuario(UserChangeForm):
     password= None
-    email = forms.EmailField()
-    first_name = forms.CharField(label='Nombre', max_length=20)
-    last_name = forms.CharField(label='Apellido', max_length=20)
+    email = forms.EmailField(label='Email a Modificar', max_length=20)
+    first_name = forms.CharField(label='Nombre a Modificar', max_length=20)
+    last_name = forms.CharField(label='Apellido a Modificar', max_length=20)
     avatar = forms.ImageField(required=False)
         
     class Meta:
