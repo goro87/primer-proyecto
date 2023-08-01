@@ -12,6 +12,11 @@
 
 {% block h1_header %}
   Proyecto Final CODERHOUSE
+{% if request.user.username %}
+<h1>Bienvenido:{{request.user}}</h1>
+{%else%}
+<p><center><h1>No hay usuario Logueado</h1></center></p>
+{% endif %}
 {% endblock h1_header %}
 
 

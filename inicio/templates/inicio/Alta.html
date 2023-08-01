@@ -16,11 +16,7 @@
 {% block  contenido%}
 <form action="" method ="POST">
   {% csrf_token %}
-  {% comment %} Nombre 
-  <input type="text" name="nombre">
-  <p></p>
-  Edad  <input type="number" name="edad">
-  <p></p> {% endcomment %}
+
   <table>
  {{formulario}}
   </table>  

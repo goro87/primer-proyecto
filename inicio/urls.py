@@ -5,7 +5,7 @@ app_name='inicio'
 
 urlpatterns = [
     path('', views.inicio , name='inicio'),
-    #path('Alta/', views.Alta , name='Alta'),
+    path('Alta_SIN_CBV/', views.Alta_SIN_CBV , name='Alta_SIN_CBV'),
     path('Alta_Producto/', views.Alta_Producto , name='Alta_Producto'),
     path('Alta_Empresa/', views.Alta_Empresa , name='Alta_Empresa'),
     path('prueba/', views.prueba, name='prueba'),

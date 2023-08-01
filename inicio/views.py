@@ -13,6 +13,9 @@ from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import  LoginRequiredMixin
+from usuario.models import InfoExtra
+
+
 
 # def inicio(request):
 #     return HttpResponse('Hola soy la vista loca')
@@ -101,23 +104,29 @@ def crear_perro(request , nombre , edad):
     return render(request,'inicio/crear_perro.html',diccionario)
 
 #Vista Original
-# def Alta(request): 
-#     #diccionario={}
-#     if request.method == "POST":
-#         formulario=CrearPersonaFormulario(request.POST)
-#         if formulario.is_valid():
-#             info = formulario.cleaned_data
-#             persona = Persona(nombre_Persona=info['nombre'],edad_Persona=info['edad']) 
-#             persona.save()
-#           #  diccionario['persona']=persona
-#             return redirect('inicio:Busqueda')
-#         else :
-#            # diccionario['formulario']=formulario
-#             return render(request,'inicio/Busqueda.html')
+def Alta_SIN_CBV(request): 
+    
+    info_extra_user = request.user.infoextra
+    #diccionario={}
+    if request.method == "POST":
+        formulario=CrearPersonaFormulario(request.POST)
+        if formulario.is_valid():
+            avatar = formulario.cleaned_data.get('avatar')
+            
+            info = formulario.cleaned_data
+            persona = Persona(nombre_Persona=info['nombre'],edad_Persona=info['edad'],avatar=info['avatar']) 
+            if avatar:
+                info_extra_user.avatar = avatar
+                info_extra_user.save()
+        persona.save()
+          #  diccionario['persona']=persona
+        #return redirect('inicio:Busqueda')
+    else :
+        return render(request,'inicio/Alta.html')
         
-#     formulario=CrearPersonaFormulario()
-#    # diccionario['formulario']=formulario
-#     return render(request,'inicio/Alta.html', {'formulario':formulario})
+    formulario=CrearPersonaFormulario()
+   # diccionario['formulario']=formulario
+    return render(request,'inicio/Alta.html', {'formulario':formulario})
 
 # def Busqueda(request):
     
@@ -224,7 +233,7 @@ def Alta_Empresa(request):
 class AltaPersona(LoginRequiredMixin,CreateView):
     model = Persona
     template_name = "inicio/CBV/Crear_Persona.html"
-    fields = ['nombre_Persona','edad_Persona','descripcion','Lugar_De_Nacimiento','Fecha_Nacimiento']
+    fields = ['nombre_Persona','edad_Persona','descripcion','Lugar_De_Nacimiento','Fecha_Nacimiento','avatar']
     success_url = reverse_lazy('inicio:Busqueda')
     
 class ListarPersonas(ListView):
@@ -251,7 +260,8 @@ class DatosPersona(DetailView):
 class Acerca(ListView):
     model = Persona
     template_name = "inicio/CBV/Acerca.html"
-    context_object_name='personas'
+    
+
 
    
     
