@@ -109,20 +109,15 @@ def Alta_SIN_CBV(request):
     info_extra_user = request.user.infoextra
     #diccionario={}
     if request.method == "POST":
-        formulario=CrearPersonaFormulario(request.POST)
+        formulario=CrearPersonaFormulario(request.POST,request.FILES)
         if formulario.is_valid():
-            avatar = formulario.cleaned_data.get('avatar')
-            
             info = formulario.cleaned_data
-            persona = Persona(nombre_Persona=info['nombre'],edad_Persona=info['edad'],avatar=info['avatar']) 
-            if avatar:
-                info_extra_user.avatar = avatar
-                info_extra_user.save()
-        persona.save()
+            persona = Persona(nombre_Persona=info['nombre'],edad_Persona=info['edad']) 
+            persona.save()
           #  diccionario['persona']=persona
-        #return redirect('inicio:Busqueda')
-    else :
-        return render(request,'inicio/Alta.html')
+            return redirect('inicio:Busqueda')
+        else :
+              return render(request,'inicio/Busqueda.html')
         
     formulario=CrearPersonaFormulario()
    # diccionario['formulario']=formulario

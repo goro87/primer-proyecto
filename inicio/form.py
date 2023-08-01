@@ -7,10 +7,10 @@ from django.contrib.auth.forms import UserCreationForm,UserChangeForm
 class PersonaFormularioBase(forms.Form):
     nombre= forms.CharField(max_length=20, required=False)
     edad= forms.IntegerField(required=False)
-    # avatar = forms.ImageField(required=False)
-    # class Meta:
-    #     model = User
-    #     fields = ['nombre','edad','avatar']
+    avatar = forms.ImageField(required=False)
+    class Meta:
+        model = User
+        fields = ['nombre','edad','avatar']
     
    
 
