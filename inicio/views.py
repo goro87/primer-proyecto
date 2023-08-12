@@ -240,7 +240,7 @@ class ListarPersonas(ListView):
 class ModificarPersona(LoginRequiredMixin,UpdateView):
     model = Persona
     template_name = "inicio/CBV/ModificarPersona.html"
-    fields = ['nombre_Persona','edad_Persona','descripcion','Lugar_De_Nacimiento','Fecha_Nacimiento']
+    fields = ['nombre_Persona','edad_Persona','descripcion','Lugar_De_Nacimiento','Fecha_Nacimiento','avatar']
     success_url = reverse_lazy('inicio:Busqueda')
     
 class EliminarPersona(LoginRequiredMixin,DeleteView):    

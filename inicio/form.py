@@ -23,7 +23,10 @@ class CrearPersonaFormulario(PersonaFormularioBase):
     
 class ModificarPersonaFormulario(forms.Form):
     nombre= forms.CharField(max_length=20, required=False)
-    edad= forms.IntegerField()    
+    edad= forms.IntegerField() 
+    avatar = forms.ImageField(required=False)
+
+    
     
 class BuscarPersona(forms.Form):
     nombre= forms.CharField(max_length=20, required=False)
